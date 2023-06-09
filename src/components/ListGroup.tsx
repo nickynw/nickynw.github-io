@@ -31,7 +31,8 @@ const ListGroup: React.FC<ListGroupProps> = (props) => {
                     basic
                     icon="github"
                     floating
-                    style={{ border: "none" }}
+                    circular
+                    style={{ border: "none", backgroundColor: "none" }}
                   ></Label>
                 </a>
               )}

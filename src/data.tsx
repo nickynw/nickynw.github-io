@@ -5,7 +5,7 @@ export const personal_data = [
     github: "https://github.com/nickynw/mcqbot",
     subtitle: "Educational App - Website + API",
     description:
-      "A Python API and React frontend that generates multiple choice questions and fake words from a graph database using node distance, with deliberate attention to modular design, containerisation, version control, object-orientated programming (OOP), automated testing, continuous development and code quality. (See Github)",
+      "A Python API and React frontend that generates multiple choice questions and fake words from a graph database using node distance, with deliberate attention to modular design, containerisation, version control, object-orientated programming (OOP), automated testing, continuous development and code quality. (See Github) Deployed using Google Cloud Run/Artifact and AWS Amplify.",
     date: "2023",
     dateLabel: "",
     icon: "clipboard list",
@@ -28,7 +28,7 @@ export const personal_data = [
     url: "https://visnickart.com",
     subtitle: "Art Website",
     description:
-      "A static website for a personal fine art image gallery focused portfolio.",
+      "A static website for a personal fine art image gallery focused portfolio and deployed via AWS Amplify.",
     date: "2022",
     dateLabel: "",
     icon: "paint brush",
@@ -39,7 +39,7 @@ export const personal_data = [
     url: "nickynw.com/",
     subtitle: "Mixed Art/Software Portfolio Website",
     description:
-      "A personal website for both my art portfolio and previous software portfolio using the MERN Stack, storing data in an online MongoDB database.",
+      "A personal website for both my art portfolio and previous software portfolio using the MERN Stack, storing data using a NoSQL MongoDB database and deployed on an Amazon EC2 Instance.",
     date: "2020",
     dateLabel: "",
     icon: "globe",
@@ -57,7 +57,7 @@ export const personal_data = [
     subtitle: "Mobile App",
     github: "https://github.com/nickynw/Unchained",
     description:
-      "A react native mobile app that uses google maps data to locate nearby independent cafes, and firebase database to store and access app data.",
+      "A react native mobile app that uses google maps data to locate nearby independent cafes, a NoSQL Firebase Database to store and access app data, and published using Expo.",
     date: "2020",
     dateLabel: "",
     tags: ["Firebase", "React Native", "Javascript", "HTML/CSS"],
@@ -66,7 +66,7 @@ export const personal_data = [
     title: "Qbot - Multiple Choice Question Generator",
     subtitle: "Educational App - Website + Database",
     description:
-      "A (now defunct) basic python website for generating multiple choice questions, attempted via both Flask + Neo4J Graph Database and Django + Postgres Database approaches.",
+      "A (now defunct) basic python website for generating multiple choice questions, attempted via both Flask + Neo4J Graph Database and Django + PostgreSQL Database approaches and deployed via Heroku.",
     date: "2020",
     dateLabel: "",
     tags: [
@@ -111,7 +111,7 @@ export const work_data = [
     subtitle:
       "Hybrid Data/Software Engineer at an Analytics and Insights Consultancy, London, UK",
     description:
-      "I was a senior data engineer at Curve for seven months, where I was responsible for guiding and managing junior data engineers. My main role was in sourcing ad hoc data, as well as designing and maintaining data pipelines that serve Power BI dashboards for external clients, with a focus on natural language processing using packages such as NLTK and regex, and using cloud services such as Snowflake, Azure Databricks and Dataiku. I also explored novel internal products and tools to support engineering and analytics teams such as an internal Flask website.",
+      "I was a senior data engineer at Curve for seven months, where I was responsible for guiding and managing junior data engineers. My main role was in sourcing ad hoc data, as well as designing and maintaining data pipelines that serve Power BI dashboards for external clients, with a focus on natural language processing using packages such as NLTK and regex, and using cloud services such as Snowflake, Azure Databricks and Dataiku. I also explored novel internal products and tools to support analytics and engineering in an innovation role, for example using an internal flask site with NLP tools.",
     date: "2020-22",
     dateLabel: "22M",
     tags: [

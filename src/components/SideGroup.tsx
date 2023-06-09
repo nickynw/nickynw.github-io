@@ -19,7 +19,7 @@ const SideGroup: React.FC<SideGroupProps> = (props) => {
             fontSize: "0.8rem",
           }}
         >
-          {props.title === "Python Packages/Tools" && (
+          {props.title === "Python Packages & Tools" && (
             <Icon name="python"></Icon>
           )}
           {props.title}

@@ -15,6 +15,7 @@ import {
 
 import SideGroup from "./components/SideGroup";
 import { personal_data, work_data, education_data } from "./data";
+import { useLayoutEffect } from "react";
 
 const languages = [
   "Python",
@@ -65,104 +66,102 @@ const python = [
 const db = ["Snowflake", "SQLite", "Postgres", "Neo4J", "MongoDB", "Firebase"];
 
 function App() {
+  useLayoutEffect(() => {
+    document.body.style.backgroundColor = "#f5f5f5";
+  });
   return (
     <div className="App">
-      <Container style={{ padding: "1rem" }}>
+      <Container style={{ paddingTop: "1rem", paddingBottom: "1rem" }}>
         {" "}
-        <Segment style={{ backgroundColor: "#f2f0f0" }}>
-          <Grid columns="equal" stackable container relaxed="very">
-            <Grid.Column width={7} style={{ margin: "0px", padding: "1rem" }}>
-              <Card
-                centered
-                style={{
-                  width: "100%",
-                  height: "100%",
-                }}
-              >
-                <Header textAlign="center" as="h1" style={{ margin: "5px" }}>
-                  <Image
-                    circular
-                    centered
-                    src="/linkedin.jpg"
-                    alt="image"
-                    style={{ width: "6rem" }}
-                  ></Image>
-                </Header>
-                <Card.Content>
-                  <Card.Header>
-                    Nicholas N. Wilson Software Portfolio
-                  </Card.Header>
-                  <Card.Meta>Last updated 08/06/2023</Card.Meta>{" "}
-                </Card.Content>{" "}
-                <Card.Content style={{ padding: "0px" }}>
-                  <Menu>
-                    <a href="https://www.linkedin.com/in/nicknwilson/">
-                      <Menu.Item as="a">
-                        <Icon name="linkedin" /> linkedin
-                      </Menu.Item>{" "}
-                    </a>{" "}
-                    <a href="https://github.com/nickynw">
-                      <Menu.Item as="a">
-                        <Icon name="github" />
-                        github
-                      </Menu.Item>{" "}
-                    </a>
-                    <a
-                      href="mailto: nicknwilson@outlook.com"
-                      style={{ width: "100%" }}
-                    >
-                      <Menu.Item as="a">
-                        <Icon name="mail" /> nicknwilson@outlook.com
-                      </Menu.Item>
-                    </a>
-                  </Menu>
-                </Card.Content>
-                <Card.Content extra>
-                  <Card.Description>
-                    <b>Actively Seeking Employment In The Following Roles:</b>
-                  </Card.Description>
-                  <div style={{ margin: "5px" }}></div>
-
-                  <Label as="a" basic>
-                    Data Engineer
-                  </Label>
-                  <Label as="a" basic>
-                    Python Engineer
-                  </Label>
-                  <Label as="a" basic>
-                    Software Engineer
-                  </Label>
-                </Card.Content>
-                <Card.Content extra>
-                  <Message>
-                    <p>
-                      After leaving my previous role at the end of 2022 I have
-                      been self-employed for six months. I am now seeking a new
-                      role as a python engineer in data/software. I am a
-                      neuroscience and computer science graduate with more than
-                      2 years combined data engineering and software engineering
-                      experience.
-                    </p>
-                  </Message>
-                </Card.Content>
-              </Card>
-            </Grid.Column>
-            <Grid.Column
-              style={{ height: "100%", margin: "0px", padding: "1rem" }}
+        <Grid columns="equal" stackable container relaxed="very">
+          <Grid.Column width={7} style={{ margin: "0px", padding: "2rem" }}>
+            <Card
+              centered
+              style={{
+                width: "100%",
+                height: "100%",
+              }}
             >
-              <Container>
-                <SideGroup items={languages} title="Languages" />
-                <SideGroup items={python} title="Python Packages/Tools" />
-                <SideGroup items={db} title="Databases & Data Management" />
-                <SideGroup
-                  items={frameworks}
-                  title="Frameworks  & Web Development"
-                />
-                <SideGroup items={cloud} title="Cloud Services & DevOps" />
-              </Container>
-            </Grid.Column>
-          </Grid>
-        </Segment>
+              <Header textAlign="center" as="h1" style={{ margin: "5px" }}>
+                <Image
+                  circular
+                  centered
+                  src="/linkedin.jpg"
+                  alt="image"
+                  style={{ width: "6rem" }}
+                ></Image>
+              </Header>
+              <Card.Content>
+                <Card.Header>Nicholas N. Wilson Software Portfolio</Card.Header>
+                <Card.Meta>Last updated 08/06/2023</Card.Meta>{" "}
+              </Card.Content>{" "}
+              <Card.Content style={{ padding: "0px" }}>
+                <Menu style={{ borderRadius: "0px", border: "none" }}>
+                  <a href="https://www.linkedin.com/in/nicknwilson/">
+                    <Menu.Item as="a">
+                      <Icon name="linkedin" /> linkedin
+                    </Menu.Item>{" "}
+                  </a>{" "}
+                  <a href="https://github.com/nickynw">
+                    <Menu.Item as="a">
+                      <Icon name="github" />
+                      github
+                    </Menu.Item>{" "}
+                  </a>
+                  <a
+                    href="mailto: nicknwilson@outlook.com"
+                    style={{ width: "100%" }}
+                  >
+                    <Menu.Item as="a">
+                      <Icon name="mail" /> nicknwilson@outlook.com
+                    </Menu.Item>
+                  </a>
+                </Menu>
+              </Card.Content>
+              <Card.Content extra>
+                <Card.Description>
+                  <b>Actively Seeking Employment In The Following Roles:</b>
+                </Card.Description>
+                <div style={{ margin: "5px" }}></div>
+
+                <Label as="a" basic>
+                  Data Engineer
+                </Label>
+                <Label as="a" basic>
+                  Python Engineer
+                </Label>
+                <Label as="a" basic>
+                  Software Engineer
+                </Label>
+
+                <Message>
+                  <p>
+                    After leaving my previous role at the end of 2022 I have
+                    been self-employed for six months. I am now seeking a new
+                    role as a python engineer in data/software. I am a
+                    neuroscience and computer science graduate with more than 2
+                    years combined data engineering and software engineering
+                    experience.
+                  </p>
+                </Message>
+              </Card.Content>
+            </Card>
+          </Grid.Column>
+          <Grid.Column
+            style={{ height: "100%", margin: "0px", padding: "2rem" }}
+          >
+            <Container>
+              <SideGroup items={languages} title="Languages" />
+              <SideGroup items={python} title="Python Packages & Tools" />
+              <SideGroup items={db} title="Databases & Data Management" />
+              <SideGroup
+                items={frameworks}
+                title="Frameworks  & Web Development"
+              />
+              <SideGroup items={cloud} title="Cloud Services & DevOps" />
+            </Container>
+          </Grid.Column>
+        </Grid>
         <Segment
           style={{
             paddingLeft: "0.2rem",
