@@ -95,29 +95,30 @@ function App() {
                 <Card.Header>Nicholas N. Wilson Software Portfolio</Card.Header>
                 <Card.Meta>Last updated 08/06/2023</Card.Meta>{" "}
               </Card.Content>{" "}
-              <Card.Content style={{ padding: "0px" }}>
-                <Menu style={{ borderRadius: "0px", border: "none" }}>
-                  <a href="https://www.linkedin.com/in/nicknwilson/">
-                    <Menu.Item as="a">
-                      <Icon name="linkedin" /> linkedin
-                    </Menu.Item>{" "}
-                  </a>{" "}
-                  <a href="https://github.com/nickynw">
-                    <Menu.Item as="a">
-                      <Icon name="github" />
-                      github
-                    </Menu.Item>{" "}
-                  </a>
-                  <a
-                    href="mailto: nicknwilson@outlook.com"
-                    style={{ width: "100%" }}
-                  >
-                    <Menu.Item as="a">
-                      <Icon name="mail" /> nicknwilson@outlook.com
-                    </Menu.Item>
-                  </a>
-                </Menu>
-              </Card.Content>
+              <Segment style={{ border: "none", boxShadow: "none" }}>
+                <Grid textAlign="center">
+                  <Grid.Column width={3} style={{ padding: "0px" }}>
+                    <a href="https://www.linkedin.com/in/nicknwilson/">
+                      <Icon size="large" name="linkedin" /> <br />
+                    </a>
+                  </Grid.Column>
+                  <Grid.Column width={3} style={{ padding: "0px" }}>
+                    <a href="https://github.com/nickynw">
+                      <Icon size="large" name="github" /> <br />
+                    </a>
+                  </Grid.Column>
+                  <Grid.Column width={9} style={{ padding: "0px" }}>
+                    {" "}
+                    <a
+                      href="mailto: nicknwilson@outlook.com"
+                      style={{ width: "100%" }}
+                    >
+                      <Icon name="mail" />
+                      nicknwilson@outlook.com
+                    </a>
+                  </Grid.Column>
+                </Grid>
+              </Segment>
               <Card.Content extra>
                 <Card.Description>
                   <b>Actively Seeking Employment In The Following Roles:</b>
