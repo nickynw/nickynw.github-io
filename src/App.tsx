@@ -74,7 +74,7 @@ function App() {
       <Container style={{ paddingTop: "1rem", paddingBottom: "1rem" }}>
         {" "}
         <Grid columns="equal" stackable container relaxed="very">
-          <Grid.Column width={7} style={{ margin: "0px", padding: "2rem" }}>
+          <Grid.Column width={8} style={{ margin: "0px", padding: "2rem" }}>
             <Card
               centered
               style={{
@@ -95,30 +95,6 @@ function App() {
                 <Card.Header>Nicholas N. Wilson Software Portfolio</Card.Header>
                 <Card.Meta>Last updated 08/06/2023</Card.Meta>{" "}
               </Card.Content>{" "}
-              <Segment style={{ border: "none", boxShadow: "none" }}>
-                <Grid textAlign="center">
-                  <Grid.Column width={3} style={{ padding: "0px" }}>
-                    <a href="https://www.linkedin.com/in/nicknwilson/">
-                      <Icon size="large" name="linkedin" /> <br />
-                    </a>
-                  </Grid.Column>
-                  <Grid.Column width={3} style={{ padding: "0px" }}>
-                    <a href="https://github.com/nickynw">
-                      <Icon size="large" name="github" /> <br />
-                    </a>
-                  </Grid.Column>
-                  <Grid.Column width={9} style={{ padding: "0px" }}>
-                    {" "}
-                    <a
-                      href="mailto: nicknwilson@outlook.com"
-                      style={{ width: "100%" }}
-                    >
-                      <Icon name="mail" />
-                      nicknwilson@outlook.com
-                    </a>
-                  </Grid.Column>
-                </Grid>
-              </Segment>
               <Card.Content extra>
                 <Card.Description>
                   <b>Actively Seeking Employment In The Following Roles:</b>
@@ -145,9 +121,46 @@ function App() {
                     experience.
                   </p>
                 </Message>
+              </Card.Content>{" "}
+              <Card.Content>
+                <Segment style={{ border: "none", boxShadow: "none" }}>
+                  <Grid width="equal" alignItems="right" verticalAlign="middle">
+                    <Grid.Row>
+                      <Grid.Column width={7}>
+                        <a href="https://www.linkedin.com/in/nicknwilson/">
+                          <Icon name="linkedin" /> linkedin
+                        </a>
+                      </Grid.Column>
+                      <Grid.Column alignItems="right" width={7}>
+                        <a href="/Nicholas_Wilson_CV_2023_June.pdf" download>
+                          <Icon name="file text" />
+                          Download CV
+                        </a>
+                      </Grid.Column>{" "}
+                    </Grid.Row>
+                    <Grid.Row>
+                      <Grid.Column width={7}>
+                        <a href="https://github.com/nickynw">
+                          <Icon name="github" /> github
+                        </a>
+                      </Grid.Column>
+                      <Grid.Column alignItems="center" width={7}>
+                        {" "}
+                        <a
+                          href="mailto: nicknwilson@outlook.com"
+                          style={{ width: "100%" }}
+                        >
+                          <Icon name="mail" />
+                          nicknwilson@outlook.com
+                        </a>
+                      </Grid.Column>
+                    </Grid.Row>
+                  </Grid>
+                </Segment>
               </Card.Content>
             </Card>
           </Grid.Column>
+
           <Grid.Column
             style={{ height: "100%", margin: "0px", padding: "2rem" }}
           >
@@ -173,15 +186,6 @@ function App() {
         >
           <Grid stackable container columns={2} relaxed="very">
             <Grid.Column>
-              <Divider horizontal>
-                <Header as="h4">
-                  <Icon name="coffee" />
-                  Personal Projects
-                </Header>
-              </Divider>
-              <ListGroup data={personal_data} />
-            </Grid.Column>
-            <Grid.Column>
               <Grid.Row>
                 <Divider horizontal>
                   <Header as="h4">
@@ -200,6 +204,15 @@ function App() {
                 </Divider>
                 <ListGroup data={education_data} />
               </Grid.Row>
+            </Grid.Column>
+            <Grid.Column>
+              <Divider horizontal>
+                <Header as="h4">
+                  <Icon name="coffee" />
+                  Personal Projects
+                </Header>
+              </Divider>
+              <ListGroup data={personal_data} />
             </Grid.Column>
           </Grid>
         </Segment>
