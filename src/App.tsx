@@ -64,6 +64,11 @@ const python = [
   "Jupyter Notebook",
 ];
 
+const dark_background = "#40424a";
+export const dark_label_background = "#5d5f69";
+export const light_label_background = "#ededed";
+export const dark_font = "#dcdfe6";
+
 const db = ["Snowflake", "SQLite", "Postgres", "Neo4J", "MongoDB", "Firebase"];
 
 function App() {
@@ -86,7 +91,7 @@ function App() {
         style={{
           paddingTop: "1rem",
           paddingBottom: "1rem",
-          color: theme === "dark" ? "#dcdfe6" : "black",
+          color: theme === "dark" ? dark_font : "black",
         }}
       >
         <Grid columns="equal" stackable container relaxed="very">
@@ -100,7 +105,7 @@ function App() {
                   theme === "dark"
                     ? "none"
                     : "0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5",
-                backgroundColor: theme === "dark" ? "#40424a" : "white",
+                backgroundColor: theme === "dark" ? dark_background : "white",
               }}
             >
               <Header textAlign="center" as="h1" style={{ margin: "5px" }}>
@@ -128,9 +133,11 @@ function App() {
                     <Button
                       onClick={setDark}
                       style={{
-                        color: theme === "dark" ? "#dcdfe6" : "black",
+                        color: theme === "dark" ? dark_font : "black",
                         backgroundColor:
-                          theme === "dark" ? "#85868f" : "#ededed",
+                          theme === "dark"
+                            ? dark_label_background
+                            : light_label_background,
                       }}
                     >
                       Dark Mode
@@ -140,9 +147,11 @@ function App() {
                       active
                       onClick={setLight}
                       style={{
-                        color: theme === "dark" ? "#dcdfe6" : "black",
+                        color: theme === "dark" ? dark_font : "black",
                         backgroundColor:
-                          theme === "dark" ? "#85868f" : "#ededed",
+                          theme === "dark"
+                            ? dark_label_background
+                            : light_label_background,
                       }}
                     >
                       Light Mode
@@ -152,7 +161,7 @@ function App() {
               </Header>
               <Card.Content>
                 <Card.Header
-                  style={{ color: theme === "dark" ? "#dcdfe6" : "black" }}
+                  style={{ color: theme === "dark" ? dark_font : "black" }}
                 >
                   Nicholas N. Wilson Software Portfolio
                 </Card.Header>
@@ -164,7 +173,7 @@ function App() {
               </Card.Content>{" "}
               <Card.Content extra>
                 <Card.Description>
-                  <b style={{ color: theme === "dark" ? "#dcdfe6" : "black" }}>
+                  <b style={{ color: theme === "dark" ? dark_font : "black" }}>
                     Actively Seeking Employment In The Following Roles:
                   </b>
                 </Card.Description>
@@ -174,7 +183,7 @@ function App() {
                   as="a"
                   basic
                   style={{
-                    color: theme === "dark" ? "#dcdfe6" : "black",
+                    color: theme === "dark" ? dark_font : "black",
                     backgroundColor: theme === "dark" ? "black" : "white",
                   }}
                 >
@@ -184,7 +193,7 @@ function App() {
                   as="a"
                   basic
                   style={{
-                    color: theme === "dark" ? "#dcdfe6" : "black",
+                    color: theme === "dark" ? dark_font : "black",
                     backgroundColor: theme === "dark" ? "black" : "white",
                   }}
                 >
@@ -194,7 +203,7 @@ function App() {
                   as="a"
                   basic
                   style={{
-                    color: theme === "dark" ? "#dcdfe6" : "black",
+                    color: theme === "dark" ? dark_font : "black",
                     backgroundColor: theme === "dark" ? "black" : "white",
                   }}
                 >
@@ -203,8 +212,11 @@ function App() {
 
                 <Message
                   style={{
-                    color: theme === "dark" ? "#dcdfe6" : "black",
-                    backgroundColor: theme === "dark" ? "#5d5f69" : "#f5f5f5",
+                    color: theme === "dark" ? dark_font : "black",
+                    backgroundColor:
+                      theme === "dark"
+                        ? dark_label_background
+                        : light_label_background,
                   }}
                 >
                   <p>
@@ -223,9 +235,15 @@ function App() {
                     border: "none",
                     boxShadow: "none",
                     backgroundColor: "transparent",
+                    paddding: "0px",
                   }}
                 >
-                  <Grid width="equal" alignItems="right" verticalAlign="middle">
+                  <Grid
+                    width="equal"
+                    alignItems="right"
+                    verticalAlign="middle"
+                    style={{ paddding: "0px" }}
+                  >
                     <Grid.Row>
                       <Grid.Column width={7}>
                         <a href="https://www.linkedin.com/in/nicknwilson/">
@@ -271,7 +289,7 @@ function App() {
           >
             <Container
               style={{
-                backgroundColor: theme === "dark" ? "#40424a" : "white",
+                backgroundColor: theme === "dark" ? dark_background : "white",
               }}
             >
               <SideGroup theme={theme} items={languages} title="Languages" />
@@ -304,7 +322,7 @@ function App() {
             paddingRight: "0.2rem",
             paddingTop: "0px",
             paddingBottom: "2rem",
-            backgroundColor: theme === "dark" ? "#40424a" : "white",
+            backgroundColor: theme === "dark" ? dark_background : "white",
           }}
         >
           <Grid.Column
