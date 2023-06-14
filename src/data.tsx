@@ -146,7 +146,7 @@ export const education_data = [
     points: [
       "I produced an Oculus Go Virtual Reality experience that educated users on Parkinson's Disease for my Master's Thesis, which aimed to explore and discuss the effects of integrated haptics on memory, empathy and immersion in VR.",
       "Course modules included Coding with C, Object Orientated Programming (Java), Web Technologies, Databases, Computer Architecture, Group Software Engineering / Collaboration, and Academic Research Skills.",
-      "I was also elected to be the student representative for the course, where I was responsible for liaising with the school committee to communicate issues encountered by the students and provide feedback.",
+      "I was also elected to be the student representative for the course, where I was responsible for liaising with the school committee to communicate issues encountered by the students and provide feedback to the university.",
     ],
     date: "2018-19",
     dateLabel: "18M",

@@ -5,11 +5,18 @@ import LabelGroup from "./LabelGroup";
 export interface SideGroupProps {
   items: string[];
   title: string;
+  theme: string;
 }
 
 const SideGroup: React.FC<SideGroupProps> = (props) => {
   return (
-    <Segment style={{ marginBottom: "0px", marginTop: "0px" }}>
+    <Segment
+      style={{
+        marginBottom: "0px",
+        marginTop: "0px",
+        backgroundColor: "transparent",
+      }}
+    >
       <Grid columns="2">
         <Grid.Column
           textAlign="center"
@@ -25,7 +32,7 @@ const SideGroup: React.FC<SideGroupProps> = (props) => {
           {props.title}
         </Grid.Column>
         <Grid.Column width={12}>
-          <LabelGroup items={props.items} />
+          <LabelGroup theme={props.theme} items={props.items} />
         </Grid.Column>
       </Grid>
     </Segment>

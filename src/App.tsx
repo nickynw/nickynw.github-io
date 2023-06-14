@@ -74,21 +74,19 @@ function App() {
   };
 
   const setLight = () => {
-    document.body.style.backgroundColor = "#f5f5f5";
     setTheme("light");
   };
 
-  useLayoutEffect(() => {
-    document.body.style.backgroundColor = "#f5f5f5";
-  });
-
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{ backgroundColor: theme === "dark" ? "#494b54" : "#f5f5f5" }}
+    >
       <Container
         style={{
           paddingTop: "1rem",
           paddingBottom: "1rem",
-          color: theme === "dark" ? "white" : "black",
+          color: theme === "dark" ? "#dcdfe6" : "black",
         }}
       >
         <Grid columns="equal" stackable container relaxed="very">
@@ -98,6 +96,11 @@ function App() {
               style={{
                 width: "100%",
                 height: "100%",
+                boxShadow:
+                  theme === "dark"
+                    ? "none"
+                    : "0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5",
+                backgroundColor: theme === "dark" ? "#40424a" : "white",
               }}
             >
               <Header textAlign="center" as="h1" style={{ margin: "5px" }}>
@@ -118,26 +121,50 @@ function App() {
                     border: "none",
                     boxShadow: "none",
                     margin: "0px",
+                    backgroundColor: "transparent",
                   }}
                 >
                   <Button.Group>
-                    <Button onClick={setDark}>Dark Mode</Button>
+                    <Button
+                      onClick={setDark}
+                      style={{
+                        color: theme === "dark" ? "#dcdfe6" : "black",
+                        backgroundColor:
+                          theme === "dark" ? "#85868f" : "#ededed",
+                      }}
+                    >
+                      Dark Mode
+                    </Button>
                     <Button.Or />
-                    <Button onClick={setLight}>Light Mode</Button>
+                    <Button
+                      active
+                      onClick={setLight}
+                      style={{
+                        color: theme === "dark" ? "#dcdfe6" : "black",
+                        backgroundColor:
+                          theme === "dark" ? "#85868f" : "#ededed",
+                      }}
+                    >
+                      Light Mode
+                    </Button>
                   </Button.Group>
                 </Segment>{" "}
               </Header>
               <Card.Content>
                 <Card.Header
-                  style={{ color: theme === "dark" ? "white" : "black" }}
+                  style={{ color: theme === "dark" ? "#dcdfe6" : "black" }}
                 >
                   Nicholas N. Wilson Software Portfolio
                 </Card.Header>
-                <Card.Meta>Last updated 08/06/2023</Card.Meta>{" "}
+                <Card.Meta>
+                  <span style={{ color: "#a0a5ad" }}>
+                    Last updated 08/06/2023
+                  </span>
+                </Card.Meta>{" "}
               </Card.Content>{" "}
               <Card.Content extra>
                 <Card.Description>
-                  <b style={{ color: theme === "dark" ? "white" : "black" }}>
+                  <b style={{ color: theme === "dark" ? "#dcdfe6" : "black" }}>
                     Actively Seeking Employment In The Following Roles:
                   </b>
                 </Card.Description>
@@ -146,27 +173,41 @@ function App() {
                 <Label
                   as="a"
                   basic
-                  style={{ color: theme === "dark" ? "white" : "black" }}
+                  style={{
+                    color: theme === "dark" ? "#dcdfe6" : "black",
+                    backgroundColor: theme === "dark" ? "black" : "white",
+                  }}
                 >
                   Data Engineer
                 </Label>
                 <Label
                   as="a"
                   basic
-                  style={{ color: theme === "dark" ? "white" : "black" }}
+                  style={{
+                    color: theme === "dark" ? "#dcdfe6" : "black",
+                    backgroundColor: theme === "dark" ? "black" : "white",
+                  }}
                 >
                   Python Engineer
                 </Label>
                 <Label
                   as="a"
                   basic
-                  style={{ color: theme === "dark" ? "white" : "black" }}
+                  style={{
+                    color: theme === "dark" ? "#dcdfe6" : "black",
+                    backgroundColor: theme === "dark" ? "black" : "white",
+                  }}
                 >
                   Software Engineer
                 </Label>
 
-                <Message>
-                  <p style={{ color: theme === "dark" ? "white" : "black" }}>
+                <Message
+                  style={{
+                    color: theme === "dark" ? "#dcdfe6" : "black",
+                    backgroundColor: theme === "dark" ? "#5d5f69" : "#f5f5f5",
+                  }}
+                >
+                  <p>
                     After leaving my previous role at the end of 2022 I have
                     been self-employed for six months. I am now seeking a new
                     role as a python engineer in data/software. I am a
@@ -177,7 +218,13 @@ function App() {
                 </Message>
               </Card.Content>{" "}
               <Card.Content>
-                <Segment style={{ border: "none", boxShadow: "none" }}>
+                <Segment
+                  style={{
+                    border: "none",
+                    boxShadow: "none",
+                    backgroundColor: "transparent",
+                  }}
+                >
                   <Grid width="equal" alignItems="right" verticalAlign="middle">
                     <Grid.Row>
                       <Grid.Column width={7}>
@@ -216,17 +263,38 @@ function App() {
           </Grid.Column>
 
           <Grid.Column
-            style={{ height: "100%", margin: "0px", padding: "2rem" }}
+            style={{
+              height: "100%",
+              margin: "0px",
+              padding: "2rem",
+            }}
           >
-            <Container>
-              <SideGroup items={languages} title="Languages" />
-              <SideGroup items={python} title="Python Packages & Tools" />
-              <SideGroup items={db} title="Databases & Data Management" />
+            <Container
+              style={{
+                backgroundColor: theme === "dark" ? "#40424a" : "white",
+              }}
+            >
+              <SideGroup theme={theme} items={languages} title="Languages" />
               <SideGroup
+                theme={theme}
+                items={python}
+                title="Python Packages & Tools"
+              />
+              <SideGroup
+                theme={theme}
+                items={db}
+                title="Databases & Data Management"
+              />
+              <SideGroup
+                theme={theme}
                 items={frameworks}
                 title="Frameworks  & Web Development"
               />
-              <SideGroup items={cloud} title="Cloud Services & DevOps" />
+              <SideGroup
+                theme={theme}
+                items={cloud}
+                title="Cloud Services & DevOps"
+              />
             </Container>
           </Grid.Column>
         </Grid>
@@ -236,7 +304,7 @@ function App() {
             paddingRight: "0.2rem",
             paddingTop: "0px",
             paddingBottom: "2rem",
-            backgroundColor: theme === "dark" ? "#444447" : "white",
+            backgroundColor: theme === "dark" ? "#40424a" : "white",
           }}
         >
           <Grid.Column
@@ -247,34 +315,43 @@ function App() {
             {" "}
           </Grid.Column>
           <Grid stackable container columns={2} relaxed="very">
-            <Grid.Column>
+            <Grid.Column style={{ paddingRight: "0px", marginRight: "0px" }}>
               <Grid.Row>
                 <Divider horizontal>
-                  <Header as="h4">
+                  <Header
+                    as="h4"
+                    style={{ color: theme === "dark" ? "white" : "black" }}
+                  >
                     <Icon name="suitcase" />
                     Employment
                   </Header>
                 </Divider>
-                <ListGroup data={work_data} />
+                <ListGroup theme={theme} data={work_data} />
               </Grid.Row>
               <Grid.Row style={{ paddingTop: "20px" }}>
                 <Divider horizontal>
-                  <Header as="h4">
+                  <Header
+                    as="h4"
+                    style={{ color: theme === "dark" ? "white" : "black" }}
+                  >
                     <Icon name="book" />
                     Education
                   </Header>
                 </Divider>
-                <ListGroup data={education_data} />
+                <ListGroup theme={theme} data={education_data} />
               </Grid.Row>
             </Grid.Column>
             <Grid.Column>
               <Divider horizontal>
-                <Header as="h4">
+                <Header
+                  as="h4"
+                  style={{ color: theme === "dark" ? "white" : "black" }}
+                >
                   <Icon name="coffee" />
                   Personal Projects
                 </Header>
               </Divider>
-              <ListGroup data={personal_data} />
+              <ListGroup theme={theme} data={personal_data} />
             </Grid.Column>
           </Grid>
         </Segment>
