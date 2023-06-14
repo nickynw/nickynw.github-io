@@ -4,6 +4,7 @@ import LabelGroup from "./LabelGroup";
 
 export interface ListGroupProps {
   data: any;
+  theme: string;
 }
 
 const ListGroup: React.FC<ListGroupProps> = (props) => {
@@ -15,24 +16,31 @@ const ListGroup: React.FC<ListGroupProps> = (props) => {
             <Statistic>
               {item.date}
 
-              <Statistic.Label style={{ fontSize: "0.8rem" }}>
+              <Statistic.Label
+                style={{
+                  fontSize: "0.8rem",
+                  color: props.theme === "dark" ? "#dcdfe6" : "black",
+                }}
+              >
                 {item.dateLabel}
               </Statistic.Label>
             </Statistic>
           </Grid.Column>
 
           <Grid.Column width={13}>
-            <Item>
+            <Item style={{ backgroundColour: "red" }}>
               {item.github && (
                 <a href={item.github}>
                   <Label
                     size="massive"
-                    color="black"
-                    basic
                     icon="github"
                     floating
                     circular
-                    style={{ border: "none", backgroundColor: "none" }}
+                    style={{
+                      border: "none",
+                      color: props.theme === "dark" ? "#dcdfe6" : "black",
+                      backgroundColor: "transparent",
+                    }}
                   ></Label>
                 </a>
               )}
@@ -60,12 +68,12 @@ const ListGroup: React.FC<ListGroupProps> = (props) => {
                   {item.description}
                   <ul>
                     {item.points?.map((point: any) => (
-                      <li key={index}>{point}</li>
+                      <li key={item.title + "-point-" + index}>{point}</li>
                     ))}
                   </ul>
                 </Item.Description>
                 <Item.Extra>
-                  <LabelGroup items={item.tags} />
+                  <LabelGroup theme={props.theme} items={item.tags} />
                 </Item.Extra>
               </Item.Content>
             </Item>

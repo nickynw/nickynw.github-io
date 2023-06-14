@@ -9,13 +9,14 @@ import {
   Image,
   Message,
   Label,
+  Button,
   Menu,
   Card,
 } from "semantic-ui-react";
 
 import SideGroup from "./components/SideGroup";
 import { personal_data, work_data, education_data } from "./data";
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useState } from "react";
 
 const languages = [
   "Python",
@@ -63,23 +64,48 @@ const python = [
   "Jupyter Notebook",
 ];
 
+const dark_background = "#40424a";
+export const dark_label_background = "#5d5f69";
+export const light_label_background = "#ededed";
+export const dark_font = "#dcdfe6";
+
 const db = ["Snowflake", "SQLite", "Postgres", "Neo4J", "MongoDB", "Firebase"];
 
 function App() {
-  useLayoutEffect(() => {
-    document.body.style.backgroundColor = "#f5f5f5";
-  });
+  const [theme, setTheme] = useState("light");
+
+  const setDark = () => {
+    setTheme("dark");
+  };
+
+  const setLight = () => {
+    setTheme("light");
+  };
+
   return (
-    <div className="App">
-      <Container style={{ paddingTop: "1rem", paddingBottom: "1rem" }}>
-        {" "}
+    <div
+      className="App"
+      style={{ backgroundColor: theme === "dark" ? "#494b54" : "#f5f5f5" }}
+    >
+      <Container
+        style={{
+          paddingTop: "1rem",
+          paddingBottom: "1rem",
+          color: theme === "dark" ? dark_font : "black",
+        }}
+      >
         <Grid columns="equal" stackable container relaxed="very">
-          <Grid.Column width={8} style={{ margin: "0px", padding: "2rem" }}>
+          <Grid.Column width={9} style={{ margin: "0px", padding: "2rem" }}>
             <Card
               centered
               style={{
                 width: "100%",
                 height: "100%",
+                boxShadow:
+                  theme === "dark"
+                    ? "none"
+                    : "0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5",
+                backgroundColor: theme === "dark" ? dark_background : "white",
               }}
             >
               <Header textAlign="center" as="h1" style={{ margin: "5px" }}>
@@ -90,28 +116,109 @@ function App() {
                   alt="image"
                   style={{ width: "6rem" }}
                 ></Image>
+                <Segment
+                  textAlign="center"
+                  style={{
+                    paddingLeft: "0.2rem",
+                    paddingRight: "0.2rem",
+                    paddingTop: "0.5rem",
+                    paddingBottom: "0.2rem",
+                    border: "none",
+                    boxShadow: "none",
+                    margin: "0px",
+                    backgroundColor: "transparent",
+                  }}
+                >
+                  <Button.Group>
+                    <Button
+                      onClick={setDark}
+                      style={{
+                        color: theme === "dark" ? dark_font : "black",
+                        backgroundColor:
+                          theme === "dark"
+                            ? dark_label_background
+                            : light_label_background,
+                      }}
+                    >
+                      Dark Mode
+                    </Button>
+                    <Button.Or />
+                    <Button
+                      active
+                      onClick={setLight}
+                      style={{
+                        color: theme === "dark" ? dark_font : "black",
+                        backgroundColor:
+                          theme === "dark"
+                            ? dark_label_background
+                            : light_label_background,
+                      }}
+                    >
+                      Light Mode
+                    </Button>
+                  </Button.Group>
+                </Segment>{" "}
               </Header>
               <Card.Content>
-                <Card.Header>Nicholas N. Wilson Software Portfolio</Card.Header>
-                <Card.Meta>Last updated 08/06/2023</Card.Meta>{" "}
+                <Card.Header
+                  style={{ color: theme === "dark" ? dark_font : "black" }}
+                >
+                  Nicholas N. Wilson Software Portfolio
+                </Card.Header>
+                <Card.Meta>
+                  <span style={{ color: "#a0a5ad" }}>
+                    Last updated 08/06/2023
+                  </span>
+                </Card.Meta>{" "}
               </Card.Content>{" "}
               <Card.Content extra>
                 <Card.Description>
-                  <b>Actively Seeking Employment In The Following Roles:</b>
+                  <b style={{ color: theme === "dark" ? dark_font : "black" }}>
+                    Actively Seeking Employment In The Following Roles:
+                  </b>
                 </Card.Description>
                 <div style={{ margin: "5px" }}></div>
 
-                <Label as="a" basic>
+                <Label
+                  as="a"
+                  basic
+                  style={{
+                    color: theme === "dark" ? dark_font : "black",
+                    backgroundColor: theme === "dark" ? "black" : "white",
+                  }}
+                >
                   Data Engineer
                 </Label>
-                <Label as="a" basic>
+                <Label
+                  as="a"
+                  basic
+                  style={{
+                    color: theme === "dark" ? dark_font : "black",
+                    backgroundColor: theme === "dark" ? "black" : "white",
+                  }}
+                >
                   Python Engineer
                 </Label>
-                <Label as="a" basic>
+                <Label
+                  as="a"
+                  basic
+                  style={{
+                    color: theme === "dark" ? dark_font : "black",
+                    backgroundColor: theme === "dark" ? "black" : "white",
+                  }}
+                >
                   Software Engineer
                 </Label>
 
-                <Message>
+                <Message
+                  style={{
+                    color: theme === "dark" ? dark_font : "black",
+                    backgroundColor:
+                      theme === "dark"
+                        ? dark_label_background
+                        : light_label_background,
+                  }}
+                >
                   <p>
                     After leaving my previous role at the end of 2022 I have
                     been self-employed for six months. I am now seeking a new
@@ -123,8 +230,20 @@ function App() {
                 </Message>
               </Card.Content>{" "}
               <Card.Content>
-                <Segment style={{ border: "none", boxShadow: "none" }}>
-                  <Grid width="equal" alignItems="right" verticalAlign="middle">
+                <Segment
+                  style={{
+                    border: "none",
+                    boxShadow: "none",
+                    backgroundColor: "transparent",
+                    paddding: "0px",
+                  }}
+                >
+                  <Grid
+                    width="equal"
+                    alignItems="right"
+                    verticalAlign="middle"
+                    style={{ paddding: "0px" }}
+                  >
                     <Grid.Row>
                       <Grid.Column width={7}>
                         <a href="https://www.linkedin.com/in/nicknwilson/">
@@ -162,17 +281,38 @@ function App() {
           </Grid.Column>
 
           <Grid.Column
-            style={{ height: "100%", margin: "0px", padding: "2rem" }}
+            style={{
+              height: "100%",
+              margin: "0px",
+              padding: "2rem",
+            }}
           >
-            <Container>
-              <SideGroup items={languages} title="Languages" />
-              <SideGroup items={python} title="Python Packages & Tools" />
-              <SideGroup items={db} title="Databases & Data Management" />
+            <Container
+              style={{
+                backgroundColor: theme === "dark" ? dark_background : "white",
+              }}
+            >
+              <SideGroup theme={theme} items={languages} title="Languages" />
               <SideGroup
+                theme={theme}
+                items={python}
+                title="Python Packages & Tools"
+              />
+              <SideGroup
+                theme={theme}
+                items={db}
+                title="Databases & Data Management"
+              />
+              <SideGroup
+                theme={theme}
                 items={frameworks}
                 title="Frameworks  & Web Development"
               />
-              <SideGroup items={cloud} title="Cloud Services & DevOps" />
+              <SideGroup
+                theme={theme}
+                items={cloud}
+                title="Cloud Services & DevOps"
+              />
             </Container>
           </Grid.Column>
         </Grid>
@@ -182,37 +322,54 @@ function App() {
             paddingRight: "0.2rem",
             paddingTop: "0px",
             paddingBottom: "2rem",
+            backgroundColor: theme === "dark" ? dark_background : "white",
           }}
         >
+          <Grid.Column
+            width={2}
+            textAlign="center"
+            style={{ padding: "0px", margin: "0px" }}
+          >
+            {" "}
+          </Grid.Column>
           <Grid stackable container columns={2} relaxed="very">
-            <Grid.Column>
+            <Grid.Column style={{ paddingRight: "0px", marginRight: "0px" }}>
               <Grid.Row>
                 <Divider horizontal>
-                  <Header as="h4">
+                  <Header
+                    as="h4"
+                    style={{ color: theme === "dark" ? "white" : "black" }}
+                  >
                     <Icon name="suitcase" />
                     Employment
                   </Header>
                 </Divider>
-                <ListGroup data={work_data} />
+                <ListGroup theme={theme} data={work_data} />
               </Grid.Row>
               <Grid.Row style={{ paddingTop: "20px" }}>
                 <Divider horizontal>
-                  <Header as="h4">
+                  <Header
+                    as="h4"
+                    style={{ color: theme === "dark" ? "white" : "black" }}
+                  >
                     <Icon name="book" />
                     Education
                   </Header>
                 </Divider>
-                <ListGroup data={education_data} />
+                <ListGroup theme={theme} data={education_data} />
               </Grid.Row>
             </Grid.Column>
             <Grid.Column>
               <Divider horizontal>
-                <Header as="h4">
+                <Header
+                  as="h4"
+                  style={{ color: theme === "dark" ? "white" : "black" }}
+                >
                   <Icon name="coffee" />
                   Personal Projects
                 </Header>
               </Divider>
-              <ListGroup data={personal_data} />
+              <ListGroup theme={theme} data={personal_data} />
             </Grid.Column>
           </Grid>
         </Segment>
