@@ -58,6 +58,11 @@ const ListGroup: React.FC<ListGroupProps> = (props) => {
                   style={{ marginTop: "1rem", marginBottom: "0.8rem" }}
                 >
                   {item.description}
+                  <ul>
+                    {item.points?.map((point: any) => (
+                      <li key={index}>{point}</li>
+                    ))}
+                  </ul>
                 </Item.Description>
                 <Item.Extra>
                   <LabelGroup items={item.tags} />
